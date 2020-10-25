@@ -19,7 +19,7 @@ const LaunchList: React.FC<Props> = ({data}) => {
         <div>
           <List>
             {data.launches.map((text, index) => (
-              <ListItem button key={text}>
+              <ListItem button key={index}>
                 <ListItemText primary={text} />
               </ListItem>
             ))}
