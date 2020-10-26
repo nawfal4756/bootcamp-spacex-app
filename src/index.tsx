@@ -6,23 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker'
 import { theme } from './Theme.styles';
 import { ThemeProvider } from '@material-ui/core';
-import { ApolloProvider } from 'react-apollo'
-import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
-import { InMemoryCache } from '@apollo/client';
-// import ApolloClient from 'apollo-boost'
-const {ApolloClient} = require('apollo-boost')
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://spacexdata.herokuapp.com/graphql'
+  uri: 'https://spacexdata.herokuapp.com/graphql',
+  cache: new InMemoryCache()
 })
 
 ReactDOM.render(
     <ApolloProvider client={client}>
-      <ApolloHooksProvider client={client}>
         <ThemeProvider theme={theme}>
           <App />
         </ThemeProvider>
-      </ApolloHooksProvider>
     </ApolloProvider>,
   document.getElementById('root')
 );

@@ -6,6 +6,7 @@ export const QUERY_LAUNCH_LIST = gql `
         mission_name
         launch_year
         launch_success
+        flight_number
         }
     }
 `
