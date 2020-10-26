@@ -1,37 +1,48 @@
-import { List, ListItem, ListItemText } from '@material-ui/core'
+import { AppBar, Divider, Drawer as MUIDrawer, IconButton, List, ListItem, ListItemText, Toolbar, Typography } from '@material-ui/core'
 import React, { useState } from 'react'
+import MenuIcon from '@material-ui/icons/Menu'
 import { LaunchListQuery } from '../../generated/graphql'
-import { useStyles } from './LaunchList.styles'
+// import { useStyles } from './LaunchList.styles'
 
 interface Props {
     data: LaunchListQuery;
 }
 
 const LaunchList: React.FC<Props> = ({data}) => {
-    const classes = useStyles()
-    const [mobile, setMobile] = useState(false)
+  //const classes = useStyles()
+  const [open, setOpen] = useState(false)
 
-    function handleDrawerToggle() {
-        setMobile(!mobile)
-    }
+    
+  return (
+      <div>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton onClick={() => setOpen(!open)}>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6">SpaceX App</Typography>
+          </Toolbar>
+          
+        </AppBar>
 
-    const drawer = (
-        <div>
+        <MUIDrawer open>
           <List>
-            {data.launches.map((text, index) => (
-              <ListItem button key={index}>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+            {data.launches?.map((text, index) => {
+              <div onClick={() => setOpen(false)}>
+                <ListItem button key={index}>
+                  <ListItemText>
+                    <Typography>{text?.mission_name}</Typography>
+                    <Typography>{text?.launch_year}</Typography>
+                    <Typography>{text?.launch_success}</Typography>
+                  </ListItemText>
+                </ListItem>
+                <Divider />
+              </div>
+            })}
           </List>
-        </div>
-      );
-
-    return (
-        <div>
-            
-        </div>
-    )
+        </MUIDrawer>
+      </div>
+  )
 }
 
 export default LaunchList

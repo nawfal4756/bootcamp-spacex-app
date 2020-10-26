@@ -1,9 +1,12 @@
 import React from 'react'
+import LaunchList from '../List'
+import LaunchInfo from '../Info'
 
 export default function App() {
     return (
         <div>
-            <p>Hello</p>
+            <LaunchList />
+            <LaunchInfo />
         </div>
     )
 }

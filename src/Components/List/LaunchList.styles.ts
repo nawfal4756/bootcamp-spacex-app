@@ -6,10 +6,8 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
+    width: drawerWidth,
+    flexShrink: 0,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -27,9 +25,5 @@ export const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-  },
-  closeMenuButton: {
-    marginRight: 'auto',
-    marginLeft: 0,
-  },
+  }
 }));

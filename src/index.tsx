@@ -8,22 +8,22 @@ import { theme } from './Theme.styles';
 import { ThemeProvider } from '@material-ui/core';
 import { ApolloProvider } from 'react-apollo'
 import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks';
-import ApolloClient from 'apollo-boost'
+import { InMemoryCache } from '@apollo/client';
+// import ApolloClient from 'apollo-boost'
+const {ApolloClient} = require('apollo-boost')
 
 const client = new ApolloClient({
   uri: 'https://spacexdata.herokuapp.com/graphql'
 })
 
 ReactDOM.render(
-  <React.StrictMode>
     <ApolloProvider client={client}>
       <ApolloHooksProvider client={client}>
         <ThemeProvider theme={theme}>
           <App />
         </ThemeProvider>
       </ApolloHooksProvider>
-    </ApolloProvider>
-  </React.StrictMode>,
+    </ApolloProvider>,
   document.getElementById('root')
 );
 

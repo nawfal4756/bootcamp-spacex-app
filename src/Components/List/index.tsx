@@ -2,7 +2,7 @@ import React from 'react'
 import { useLaunchListQuery } from '../../generated/graphql'
 import LaunchList from './LaunchList'
 
-export default function LaunchListCountainer() {
+export default function LaunchListContainer() {
     const {data, loading, error}  = useLaunchListQuery()
 
     if (loading) {
@@ -13,7 +13,7 @@ export default function LaunchListCountainer() {
         return <div>ERROR</div>
     }
 
-    <LaunchList data={data} />
+    return <LaunchList data={data} />
 }
 
 
