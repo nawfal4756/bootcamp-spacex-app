@@ -14,8 +14,8 @@ export const useStyles = makeStyles({
     color: "red",
   },
   pictures: {
-    height: "400px",
-    width: "400px",
+    height: "300px",
+    width: "auto",
     margin: "2%",
   },
 });
