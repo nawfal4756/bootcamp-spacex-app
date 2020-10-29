@@ -14,4 +14,10 @@ export const useStyles = makeStyles({
   failed: {
     color: "red",
   },
+  drwaerHeader: {
+    display: "flex",
+    alignItems: "center",
+    padding: "10px",
+    justifyContent: "flex-end",
+  },
 });

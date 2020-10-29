@@ -15,6 +15,7 @@ import React, { useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import { LaunchListQuery } from "../../generated/graphql";
 import { useStyles } from "./LaunchList.styles";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 interface Props {
   data: LaunchListQuery;
@@ -50,6 +51,12 @@ const LaunchList: React.FC<Props> = ({
 
       <MUIDrawer open={open}>
         <div className={classes.drawer} onKeyDown={() => setOpen(false)}>
+          <div className={classes.drwaerHeader}>
+            <IconButton onClick={() => setOpen(false)}>
+              <ChevronLeftIcon />
+            </IconButton>
+          </div>
+          <Divider />
           <List>
             {loading ? (
               <Backdrop open={true}>
